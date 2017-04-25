@@ -1,0 +1,16 @@
+host='igor-pi'
+path='/usr/local/james-dashbutton/'
+
+[deploy:local]
+git status
+git push origin master
+
+[deploy]
+git checkout master
+git pull
+npm install
+sudo bash -c "pgrep james-dashbutton && killall james-dashbutton"
+sudo bash -c "npm start > /var/log/james-dashbutton.log 2&>1 &"
+
+[status]
+ps -ef | grep james-dashbutton
