@@ -10,7 +10,7 @@ git checkout master
 git pull
 npm install
 sudo bash -c "pgrep james-dashbutton && killall james-dashbutton || echo "
-sudo bash -c "npm start > /var/log/james-dashbutton.log 2&>1 &"
+sudo bash -c "cd /usr/local/james-dashbutton/ ; npm start > /var/log/james-dashbutton.log 2>&1 &"
 
 [status]
 ps -ef | grep james-dashbutton
