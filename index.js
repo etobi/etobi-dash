@@ -80,7 +80,9 @@ var dash = dash_button(Object.keys(dashConfig.buttons), null, null, "all");
 
 
 dash.on("detected", function (id){
+	sendSlackMessage('< ' + id);
 	Object.keys(dashConfig.buttons).forEach(function(address) {
+		sendSlackMessage('? ' + address);
 		if (address == id) {
 			var button = dashConfig[address];
 			if (button && button.name) {
