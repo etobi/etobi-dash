@@ -5,7 +5,8 @@
   "dependencies": {
     "node-dash-button": "*",
     "ip": "*",
-    "mqtt": "*"
+    "mqtt": "*",
+    "request": "*"
   },
   "devDependencies": {},
   "scripts": {
