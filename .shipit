@@ -9,7 +9,7 @@ git push origin master
 git checkout master
 git pull
 npm install
-sudo bash -c "pgrep james-dashbutton && killall james-dashbutton || echo "
+sudo bash -c "pgrep james-dash && killall james-dashbutton || echo "
 sudo bash -c "cd /usr/local/james-dashbutton/ ; npm start > /var/log/james-dashbutton.log 2>&1 &"
 
 [status]
