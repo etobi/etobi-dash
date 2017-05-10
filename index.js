@@ -75,12 +75,12 @@ var sendSlackMessage = function (message) {
 
 var dash_button = require('node-dash-button');
 
-sendSlackMessage(Object.keys(dashConfig).join(', '));
-var dash = dash_button(Object.keys(dashConfig), null, null, "all");
+sendSlackMessage(Object.keys(dashConfig.buttons).join(', '));
+var dash = dash_button(Object.keys(dashConfig.buttons), null, null, "all");
 
 
 dash.on("detected", function (id){
-	Object.keys(dashConfig).forEach(function(address) {
+	Object.keys(dashConfig.buttons).forEach(function(address) {
 		if (address == id) {
 			var button = dashConfig[address];
 			if (button && button.name) {
