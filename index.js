@@ -1,6 +1,7 @@
 process.title = 'james-dashbutton';
 
-var net = require('net');
+var net = require('net'),
+	request = require('request');
 
 var client = new net.Socket();
 
