@@ -21,7 +21,7 @@ var dashConfig = {
 		},
 		"50:f5:da:9d:31:f4": {
 			name: "power point",
-			http: "http://192.168.50.105/cm?cmnd=PowerOnState%20off"
+			http: "http://192.168.50.105/cm?cmnd=PowerOnState%20toggle"
 		},
 		"88:71:e5:5d:9e:7e": {
 			name: "nerf",
