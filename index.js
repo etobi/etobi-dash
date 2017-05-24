@@ -104,7 +104,7 @@ dash.on("detected", function (id){
 				sendToLcn(button.lcn);
 			}
 			if (button && button.http && button.http !== "") {
-				sendHttpRequest(button.lcn);
+				sendHttpRequest(button.http);
 			}
 		}
 	});
