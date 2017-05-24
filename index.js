@@ -21,7 +21,7 @@ var dashConfig = {
 		},
 		"50:f5:da:9d:31:f4": {
 			name: "power point",
-			lcn: "LCN.sendkey.0.60.A2=hit"
+			http: "http://192.168.50.105/cm?cmnd=PowerOnState%20off"
 		},
 		"88:71:e5:5d:9e:7e": {
 			name: "nerf",
@@ -73,6 +73,19 @@ var sendSlackMessage = function (message) {
 	});
 };
 
+var sendHttpRequest = function(url) {
+	var options = {
+		uri: url,
+		method: 'GET'
+	};
+	request(options, function (error, response, body) {
+		if (error) {
+			console.log('Error! (sendHttpRequest/request)', error);
+		}
+	});
+
+};
+
 var dash_button = require('node-dash-button');
 
 sendSlackMessage(Object.keys(dashConfig.buttons).join(', '));
@@ -87,8 +100,11 @@ dash.on("detected", function (id){
 				console.log(button.name);
 				sendSlackMessage('Dashbutton: ' + button.name + ' (' + address + ')');
 			}
-			if (button && button.lcn &&  button.lcn !== "") {
+			if (button && button.lcn && button.lcn !== "") {
 				sendToLcn(button.lcn);
+			}
+			if (button && button.http && button.http !== "") {
+				sendHttpRequest(button.lcn);
 			}
 		}
 	});
