@@ -1,4 +1,4 @@
-process.title = 'james-dashbutton';
+process.title = 'james-dashbut';
 
 var net = require('net'),
 	request = require('request');
