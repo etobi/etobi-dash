@@ -1,5 +1,11 @@
 process.title = 'james-dashbut';
 
+process.on('uncaughtException', function(e) {
+	console.log('Uncaught Exception...');
+	console.log(e.stack);
+	process.exit(99);
+});
+
 var net = require('net'),
 	request = require('request');
 
@@ -29,7 +35,7 @@ var dashConfig = {
 		},
 		"50:f5:da:80:ce:d8": {
 			name: "barbantia",
-			lcn: "LCN.sendkey.0.50.A1=hit" // Garage
+			lcn: "" // Garage
 		},
 		"ac:63:be:1a:1e:f7": {
 			name: "somat/ohne",
@@ -49,7 +55,7 @@ var dashConfig = {
 		},
 		"f0:27:2d:c1:55:1d": {
 			name: "bio zentrale",
-			lcn: ""
+			lcn: "LCN.sendkey.0.50.A1=hit"
 		},
 		"b4:7c:9c:9f:2c:3f": {
 			name: "durex",
