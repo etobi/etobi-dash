@@ -50,8 +50,8 @@ var dashConfig = {
 			name: "eukanuba"
 		},
 		"f0:27:2d:c1:55:1d": {
-			name: "bio zentrale",
-			lcn: "LCN.sendkey.0.50.A1=hit" // Garage
+			name: "bio zentrale" // ,
+			// lcn: "LCN.sendkey.0.50.A1=hit" // Garage
 		},
 		"b4:7c:9c:9f:2c:3f": {
 			name: "durex"
