@@ -1,22 +1,22 @@
 process.title = 'james-dashbut';
 
-process.on('uncaughtException', function(e) {
+process.on('uncaughtException', function (e) {
 	console.log('Uncaught Exception...');
 	console.log(e.stack);
 	process.exit(99);
 });
 
 var net = require('net'),
-	request = require('request');
+		request = require('request');
 
 var client = new net.Socket();
 
-var sendToLcn = function(command) {
-  	client.connect(4224, '192.168.50.50', function() {
-      		console.log('Connected');
-      		client.write(command + '\n');
-      		client.destroy();
-  	});
+var sendToLcn = function (command) {
+	client.connect(4224, '192.168.50.50', function () {
+		console.log('Connected');
+		client.write(command + '\n');
+		client.destroy();
+	});
 };
 
 var dashConfig = {
@@ -78,7 +78,7 @@ var sendSlackMessage = function (message) {
 	});
 };
 
-var sendHttpRequest = function(url) {
+var sendHttpRequest = function (url) {
 	var options = {
 		uri: url,
 		method: 'GET'
@@ -97,25 +97,27 @@ sendSlackMessage(Object.keys(dashConfig.buttons).join(', '));
 var dash = dash_button(Object.keys(dashConfig.buttons), null, null, "all");
 
 var silent = {};
-dash.on("detected", function (id){
-	Object.keys(dashConfig.buttons).forEach(function(address) {
-		if (address == id && !silent[address]) {
-			silent[address]= true;
-			setTimeout(function() {
-				silent[address] = false;
-			}, 3000);
+dash.on("detected", function (id) {
+	console.log('detected ' + id);
+	if (dashConfig.buttons.hasOwnProperty(id)) {
+		var button = dashConfig.buttons[id];
+		if (button && (!silent.hasOwnProperty(id) || !silent[id])) {
+			silent[address] = true;
 
-			var button = dashConfig.buttons[address];
-			if (button && button.name) {
+			if (button.name) {
 				console.log(button.name);
-				sendSlackMessage('Dashbutton: ' + button.name + ' (' + address + ')');
+				sendSlackMessage('Dashbutton: ' + button.name + ' (' + id + ')');
 			}
-			if (button && button.lcn && button.lcn !== "") {
+
+			if (button.lcn && button.lcn !== "") {
 				sendToLcn(button.lcn);
 			}
-			if (button && button.http && button.http !== "") {
+			if (button.http && button.http !== "") {
 				sendHttpRequest(button.http);
 			}
+			setTimeout(function () {
+				silent[id] = false;
+			}, 3000);
 		}
-	});
+	}
 });
