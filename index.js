@@ -102,7 +102,7 @@ dash.on("detected", function (id) {
 	if (dashConfig.buttons.hasOwnProperty(id)) {
 		var button = dashConfig.buttons[id];
 		if (button && (!silent.hasOwnProperty(id) || !silent[id])) {
-			silent[address] = true;
+			silent[id] = true;
 
 			if (button.name) {
 				console.log(button.name);
