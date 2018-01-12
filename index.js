@@ -26,8 +26,7 @@ var dashConfig = {
 			lcn: "LCN.sendkey.0.12.B8=hit" // Steckdosen aussen
 		},
 		"50:f5:da:9d:31:f4": {
-			name: "power point",
-			http: "http://192.168.50.104/cm?cmnd=Power1%20toggle" // Silvia
+			name: "power point" // leer
 		},
 		"88:71:e5:5d:9e:7e": {
 			name: "nerf",
@@ -44,7 +43,8 @@ var dashConfig = {
 			lcn: "LCN.sendkey.0.50.A1=hit" // Garage
 		},
 		"ac:63:be:e0:5c:12": {
-			name: "dreamies"
+			name: "dreamies",
+			lcn: "LCN.relay.0.13.7=toggle" // Bad OG Licht/Std
 		},
 		"50:f5:da:d3:b0:ac": {
 			name: "eukanuba"
@@ -59,6 +59,10 @@ var dashConfig = {
 		"ac:63:be:03:2e:9a": {
 			name: "rexel",
 			lcn: "LCN.sendkey.0.63.A1=hit" // Licht Terrasse
+		},
+		"78:e1:03:5e:82:54": {
+			name: "nescafe",
+			http: "http://192.168.50.104/cm?cmnd=Power1%20toggle" // Silvia
 		}
 	}
 };
