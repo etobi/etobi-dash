@@ -107,6 +107,9 @@ dash.on("detected", function (id) {
 		var button = dashConfig.buttons[id];
 		if (button && (!silent.hasOwnProperty(id) || !silent[id])) {
 			silent[id] = true;
+			setTimeout(function () {
+				silent[id] = false;
+			}, 7000);
 
 			if (button.name) {
 				console.log(button.name);
@@ -119,9 +122,6 @@ dash.on("detected", function (id) {
 			if (button.http && button.http !== "") {
 				sendHttpRequest(button.http);
 			}
-			setTimeout(function () {
-				silent[id] = false;
-			}, 3000);
 		}
 	}
 });
