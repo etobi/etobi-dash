@@ -1,6 +1,6 @@
 {
   "mqtt": {
-    "url": "mqtt://domiq.localdomain",
+    "url": "mqtt://igor-pi.localdomain",
     "options": {
       "username": "domiqtt",
       "password": "JzDwC8kAmoKBrpZXgAEFsht"
