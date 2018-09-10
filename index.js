@@ -12,7 +12,7 @@ var net = require('net'),
 var client = new net.Socket();
 
 var sendToLcn = function (command) {
-	client.connect(4224, '192.168.50.50', function () {
+	client.connect(4224, 'domiq.localdomain', function () {
 		console.log('Connected');
 		client.write(command + '\n');
 		client.destroy();
@@ -62,7 +62,7 @@ var dashConfig = {
 		},
 		"78:e1:03:5e:82:54": {
 			name: "nescafe",
-			http: "http://192.168.50.104/cm?cmnd=Power1%20toggle" // Silvia
+			http: "http://sonoff-silvia.localdomain/cm?cmnd=Power1%20toggle" // Silvia
 		}
 	}
 };
